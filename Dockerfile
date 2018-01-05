@@ -8,7 +8,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 RUN mkdir ${HOME}/mooc
 COPY smp1.csv ${HOME}/mooc/
-#RUN cp ${HOME}/smp1.csv ${HOME}/mooc
+COPY outils_hdrs.csv ${HOME}/mooc/
 
 ENV NB_USER rstudio
 ENV NB_UID 1000
@@ -19,7 +19,7 @@ WORKDIR ${HOME}
 USER ${NB_USER}
 
 # Set up R Kernel for Jupyter
-RUN R --quiet -e "install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))"
+RUN R --quiet -e "install.packages(c('gplots','repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))"
 RUN R --quiet -e "devtools::install_github('IRkernel/IRkernel')"
 RUN R --quiet -e "IRkernel::installspec()"
 
