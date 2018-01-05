@@ -7,8 +7,8 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 RUN mkdir ${HOME}/mooc
-
-RUN cp ${HOME}/smp1.csv ${HOME}/mooc
+COPY smp1.csv ${HOME}/mooc/
+#RUN cp ${HOME}/smp1.csv ${HOME}/mooc
 
 ENV NB_USER rstudio
 ENV NB_UID 1000
