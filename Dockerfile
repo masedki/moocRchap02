@@ -9,6 +9,8 @@ RUN apt-get update && \
 RUN mkdir ${HOME}/mooc
 COPY smp1.csv ${HOME}/mooc/
 COPY outils_hdrs.csv ${HOME}/mooc/
+COPY chap02.ipynb ${HOME}/mooc/
+
 
 ENV NB_USER rstudio
 ENV NB_UID 1000
